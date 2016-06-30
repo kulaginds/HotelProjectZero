@@ -4,12 +4,12 @@
     = f.label :title
     %br
       = f.text_field :title
-  %p
+  /%p
     / <haml:loud> f.label :rating </haml:loud><br>
     /
       как сделать от 1 до 5?
       и перенести на новую строку
-    = f.input :rating, as: :integer
+    /= f.input :rating, as: :integer
   %p
     = f.label :breakfast_included
     = f.input_field :remember_me, as: :boolean, boolean_style: :inline
