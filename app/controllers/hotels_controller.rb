@@ -1,5 +1,7 @@
 class HotelsController < ApplicationController
 
+	before_action :require_fields, only: [:create, :update]
+
 	def index
 		# show list all hotels
 		@hotels = Hotel.all
@@ -29,6 +31,10 @@ class HotelsController < ApplicationController
 
 	def destroy
 		# handle delete hotel
+	end
+
+	def require_fields
+		params.require(:hotel).permit(:title, :breakfast, :description, :photo, :address)
 	end
 
 end
