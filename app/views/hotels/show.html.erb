@@ -2,7 +2,7 @@
 
 <ul>
 	<li><%= link_to 'Edit hotel', edit_hotel_path %></li>
-	<li><%= link_to 'Delete hotel', hotel_path %></li>
+	<li><%= link_to 'Delete hotel', hotel_path(hotel), method: :delete, { data: { confirm: 'Are you want to delete hotel?' } } %></li>
 </ul>
 
 <p>show hotel info</p>
