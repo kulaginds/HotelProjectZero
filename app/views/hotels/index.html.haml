@@ -10,10 +10,14 @@
         %img{:alt => ":(", :src => hotel.photo, :width => "200"}/
       %td
         %p
-          Rating: 
+          Rating:
           = hotel.rating
         %p
           Breakfast included:
-          \#{ hotel.breakfast==0 ? " Yes" :" No" }
+          \#{ hotel.breakfast==1 ? " Yes" :" No" }
         %p
           Price:#{hotel.price}
+      %td
+        %p
+          =link_to 'Edit', edit_hotel_path(hotel)
+        /  =link_to 'Show', hotel_path(hotel)

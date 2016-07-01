@@ -9,6 +9,13 @@ class HotelsController < ApplicationController
 
 	def create
 		# handle new hotel
+		@hotel=Hotel.new (require_fields)
+
+		if @hotel.save
+			redirect_to @hotel
+		else
+			render 'new'
+		end
 	end
 
 	def new
@@ -27,6 +34,12 @@ class HotelsController < ApplicationController
 
 	def update
 		# handle edit hotel
+		@hotel=Hotel.find(params[:id])
+		if @hotel.update(require_fields)
+			redirect_to @hotel
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
