@@ -34,7 +34,7 @@ class HotelsController < ApplicationController
 
 	def update
 		# handle edit hotel
-		@hotel=Hotel.find(params[:id])
+		@hotel = Hotel.find(params[:id])
 		if @hotel.update(require_fields)
 			redirect_to @hotel
 		else
@@ -44,6 +44,12 @@ class HotelsController < ApplicationController
 
 	def destroy
 		# handle delete hotel
+		@hotel = Hotel.find(params[:id])
+		if @hotel.destroy
+			redirect_to hotels_path
+		else
+			redirect_to @hotel
+		end
 	end
 
 	def require_fields
