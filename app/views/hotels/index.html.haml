@@ -7,7 +7,7 @@
       %h2= hotel.title
     %tr#hotel_info
       %td#photo
-        %img{:alt => "hotel photo", :src => hotel.photo, :width => "200"}/
+        %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}/
       %td
         %p
           Rating:#{hotel.rating}
