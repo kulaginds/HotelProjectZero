@@ -1,18 +1,19 @@
 %h1 Hotels index
 = link_to 'Create new hotel', new_hotel_path
-%p List of hotels
+%h1 List of hotels
 - @hotels.each do |hotel|
   %table{:border => "1", :cellpadding => "5px"}
     %tr#hotel_title
-      %h1= hotel.title
+      %h2= hotel.title
     %tr#hotel_info
       %td#photo
         %img{:alt => ":(", :src => hotel.photo, :width => "200"}/
       %td
         %p
+          Rating: 
           = hotel.rating
         %p
           Breakfast included:
-          \#{hotel.breakfast ? "Yes" : "No"}
+          \#{ hotel.breakfast==0 ? " Yes" :" No" }
         %p
           Price:#{hotel.price}
