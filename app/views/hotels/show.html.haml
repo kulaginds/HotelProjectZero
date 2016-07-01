@@ -1,0 +1,29 @@
+%h1 Hotel show
+= link_to 'Back', hotels_path
+%table{:border => "1", :cellpadding => "5px"}
+  %tr
+    %td{:colspan => 3}
+      %h2= @hotel.title
+  %tr
+    %td
+      %img{:alt => "hotel photo", :src => @hotel.photo, :width => 400}
+    %td
+      %p
+        Rating:
+        = @hotel.rating
+      %p
+        Breakfast included:
+        #{ @hotel.breakfast==1 ? " Yes" :" No" }
+      %p
+        Price:
+        = @hotel.price
+      %p
+        Room description:
+        = @hotel.description
+      %p
+        Address:
+        = @hotel.address
+    %td
+      %p
+        = link_to 'Edit hotel', edit_hotel_path(@hotel)
+        = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }

@@ -7,17 +7,14 @@
       %h2= hotel.title
     %tr#hotel_info
       %td#photo
-        %img{:alt => ":(", :src => hotel.photo, :width => "200"}/
+        %img{:alt => "hotel photo", :src => hotel.photo, :width => "200"}/
       %td
         %p
-          Rating:
-          = hotel.rating
+          Rating:#{hotel.rating}
         %p
-          Breakfast included:
-          \#{ hotel.breakfast==1 ? " Yes" :" No" }
+          Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
         %p
           Price:#{hotel.price}
       %td
         %p
-          =link_to 'Edit', edit_hotel_path(hotel)
           =link_to 'Show', hotel_path(hotel)
