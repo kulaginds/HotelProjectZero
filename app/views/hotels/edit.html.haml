@@ -2,6 +2,14 @@
 %p
   = link_to 'List', hotels_path
 = simple_form_for :hotel, :url => hotel_path(@hotel), :method => :put do |f|
+  - if @hotel.errors.any?
+    #error_explanation
+    %h2
+      = pluralize(@hotel.errors.count, "error")
+      prohibited this article from being saved:
+    %ul
+      - @hotel.errors.full_messages.each do |msg|
+        %li= msg
   %table{:border => "1", :cellpadding => "5px"}
     %tr
       %td

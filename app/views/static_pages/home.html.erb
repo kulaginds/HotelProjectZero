@@ -1,9 +1,8 @@
 <div class="center hero-unit">
   <h1>Welcome to the Hotel Advisor</h1>
 
-    <h1>Hello!</h1>
-    <%= link_to 'List hotels', hotels_path %>
-    <p>Landing page</p>
+  <%= link_to 'List hotels', hotels_path %>
+  <p>Landing page</p>
   <% if !user_signed_in? %>
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <% end %>
