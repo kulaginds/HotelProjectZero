@@ -54,7 +54,7 @@ class HotelsController < ApplicationController
 	end
 
 	def require_fields
-		params.require(:hotel).permit(:title, :breakfast, :description, :photo, :address)
+		params.require(:hotel).permit(:title, :breakfast, :description, :price, :photo, :address)
 	end
 
 end
