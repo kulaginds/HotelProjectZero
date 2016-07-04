@@ -1,7 +1,7 @@
 class HotelsController < ApplicationController
 
 	before_action :require_fields, only: [:create, :update]
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
 	def index
 		# show list all hotels
@@ -54,7 +54,7 @@ class HotelsController < ApplicationController
 	end
 
 	def require_fields
-		params.require(:hotel).permit(:title, :breakfast, :description, :photo, :address)
+		params.require(:hotel).permit(:title, :breakfast, :description, :price, :photo, :address)
 	end
 
 end
