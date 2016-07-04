@@ -8,33 +8,11 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-<body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
-          
-          <nav>
-            <ul class="nav pull-right">
-              
-              <li><%= link_to "Sign in", '#' %></li>
-              <li><%= link_to "Sign up now!", signup_path%></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
-=======
 <% if user_signed_in? %>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 <% end %>
 
 <%= yield %>
->>>>>>> develop
 
 </body>
 </html>
