@@ -7,7 +7,10 @@ class CreateHotels < ActiveRecord::Migration
       t.text :description
       t.string :photo
       t.integer :price
-      t.string :address
+      t.string :country
+      t.string :state
+      t.string :city
+      t.string :street
 
       t.timestamps null: false
     end

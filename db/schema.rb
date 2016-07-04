@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704134015) do
+ActiveRecord::Schema.define(version: 20160701153011) do
 
   create_table "hotels", force: :cascade do |t|
     t.string   "title"
@@ -20,14 +20,16 @@ ActiveRecord::Schema.define(version: 20160704134015) do
     t.text     "description"
     t.string   "photo"
     t.integer  "price"
-    t.string   "address"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "street"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "picture"
-    t.string   "hotel_pic"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "login",                  default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -40,7 +42,6 @@ ActiveRecord::Schema.define(version: 20160704134015) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
