@@ -24,6 +24,7 @@ class Api::V1::HotelsController < ApplicationController
 
 	def show
 		hotel = Hotel.find(params[:id])
+		render json: hotel, status: 200
 	end
 
 	def update
