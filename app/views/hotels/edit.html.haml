@@ -19,40 +19,40 @@
         = f.text_field :title
     %tr
       %td
-        = f.label :breakfast
+        = f.label :breakfast, required: false
       %td
         = f.input_field :breakfast, as: :boolean, boolean_style: :inline
     %tr
       %td
-        = f.label :description
+        = f.label :description, required: false
       %td
         = f.text_area :description
     %tr
       %td{:colspan => 2}
-        = f.input :photo, as: :file
+        = f.input :photo, as: :file, required: false
     %tr
       %td
-        = f.label :price
+        = f.label :price, required: false
       %td
         = f.text_field :price
     %tr
       %td
-        = f.label :country
+        = f.label :country, required: false
       %td
         = f.text_field :country
     %tr
       %td
-        = f.label :state
+        = f.label :state, required: false
       %td
         = f.text_field :state
     %tr
       %td
-        = f.label :city
+        = f.label :city, required: false
       %td
         = f.text_field :city
     %tr
       %td
-        = f.label :street
+        = f.label :street, required: false
       %td
         = f.text_field :street
     %tr
