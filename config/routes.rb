@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, :path_names => {:sign_up => "register"}
 
   # root 'application#index'
-  resources :hotels
+  resources :hotels do
+    resources :comments
+  end
 
   namespace :api do
   	namespace :v1 do

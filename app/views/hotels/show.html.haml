@@ -27,3 +27,11 @@
       %p
         = link_to 'Edit hotel', edit_hotel_path(@hotel)
         = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }
+%h2 Comments
+-if @hotel.comments.length > 0
+  = render @hotel.comments
+-else
+  %p No comments
+
+%h2 Add a comment:
+=render 'comments/comment_form'
