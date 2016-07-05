@@ -5,7 +5,5 @@
   %strong Comment:
   = comment.body
 %p
-  =link_to 'Destroy', [comment.hotel, comment],
-  method: :delete,
-  data: {confirm: 'Are you sure?'}
+  =link_to 'Destroy', [comment.hotel, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'button'
 %hr

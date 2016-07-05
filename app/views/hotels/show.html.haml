@@ -1,37 +1,30 @@
-%h1 Hotel show
-= link_to 'Back', hotels_path
-%table{:border => "1", :cellpadding => "5px"}
-  %tr
-    %td{:colspan => 3}
+%h1
+  Hotel show
+  %div.hotel
+    %img{:alt => "hotel photo", :src => @hotel.photo.thumb, :width => "200"}/
+    %div.data
       %h2= @hotel.title
-  %tr
-    %td
-      %img{:alt => "hotel photo", :src => @hotel.photo.url, :width => 400}
-    %td
       %p
-        Rating:
-        = @hotel.rating
+        Rating:#{@hotel.rating}
       %p
-        Breakfast included:
-        #{ @hotel.breakfast==1 ? " Yes" :" No" }
+        Breakfast included: #{ @hotel.breakfast==1 ? " Yes" :" No" }
       %p
-        Price:
-        = @hotel.price
+        Price:#{@hotel.price}
       %p
         Room description:
         = @hotel.description
       %p
         Address:
         = @hotel.country + ", " + @hotel.state + ", "  + @hotel.city + ", "  + @hotel.street
-    %td
-      %p
-        = link_to 'Edit hotel', edit_hotel_path(@hotel)
-        = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }
-%h2 Comments
--if @hotel.comments.length > 0
-  = render @hotel.comments
--else
-  %p No comments
+      
+      = link_to 'Edit hotel', edit_hotel_path(@hotel), class: 'button'
+      = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button'
 
-%h2 Add a comment:
-=render 'comments/comment_form'
+  %h2 Comments
+  -if @hotel.comments.length > 0
+    = render @hotel.comments
+  -else
+    %p No comments
+
+  %h2 Add a comment:
+  =render 'comments/comment_form'

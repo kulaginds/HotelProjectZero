@@ -1,20 +1,19 @@
 %h1 Hotels index
-= link_to 'Create new hotel', new_hotel_path
-%h1 List of hotels
+= link_to 'Create new hotel', new_hotel_path, {class:'button'}
+%div.list
 - @hotels.each do |hotel|
-  %table{:border => "1", :cellpadding => "5px"}
-    %tr#hotel_title
+  %div.hotel
+    %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}/
+    %div.data
       %h2= hotel.title
-    %tr#hotel_info
-      %td#photo
-        %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}/
-      %td
-        %p
-          Rating:#{hotel.rating}
-        %p
-          Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
-        %p
-          Price:#{hotel.price}
-      %td
-        %p
-          =link_to 'Show', hotel_path(hotel)
+      %p
+        Rating:#{hotel.rating}
+      %p
+        Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
+      %p
+        Price:#{hotel.price}
+      = link_to hotel_path(hotel), {class: 'button'} do
+        %span
+          Read More
+
+= paginate @hotels
