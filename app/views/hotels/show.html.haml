@@ -22,7 +22,7 @@
         = @hotel.description
       %p
         Address:
-        = @hotel.address
+        = @hotel.country + ", " + @hotel.state + ", "  + @hotel.city + ", "  + @hotel.street
     %td
       %p
         = link_to 'Edit hotel', edit_hotel_path(@hotel)

@@ -2,6 +2,14 @@
 %p
   = link_to 'Back', hotels_path
 = simple_form_for :hotel, :url => hotels_path, :method => :post do |f|
+  - if @hotel.errors.any?
+    #error_explanation
+    %h2
+      = pluralize(@hotel.errors.count, "error")
+      prohibited this article from being saved:
+    %ul
+      - @hotel.errors.full_messages.each do |msg|
+        %li= msg
   %table{:border => "1", :cellpadding => "5px"}
     %tr
       %td
@@ -18,7 +26,7 @@
       %td
         = f.label :description
       %td
-        = f.text_area :text
+        = f.text_area :description
     %tr
       %td{:colspan => 2}
         = f.input :photo, as: :file
@@ -29,9 +37,24 @@
         = f.text_field :price
     %tr
       %td
-        = f.label :address
+        = f.label :country
       %td
-        = f.text_field :address
+        = f.text_field :country
+    %tr
+      %td
+        = f.label :state
+      %td
+        = f.text_field :state
+    %tr
+      %td
+        = f.label :city
+      %td
+        = f.text_field :city
+    %tr
+      %td
+        = f.label :street
+      %td
+        = f.text_field :street
     %tr
       %td{:colspan => 2}
         = f.button :submit

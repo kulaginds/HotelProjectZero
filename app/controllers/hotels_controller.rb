@@ -21,6 +21,7 @@ class HotelsController < ApplicationController
 
 	def new
 		# show new hotel form
+		@hotel=Hotel.new # for break form validation
 	end
 
 	def edit
@@ -53,8 +54,10 @@ class HotelsController < ApplicationController
 		end
 	end
 
+	private
+
 	def require_fields
-		params.require(:hotel).permit(:title, :breakfast, :description, :price, :photo, :address)
+		params.require(:hotel).permit(:title, :breakfast, :description, :price, :photo, :country, :state, :city, :street)
 	end
 
 end

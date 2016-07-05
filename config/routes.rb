@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   # root 'application#index'
   resources :hotels
 
+  namespace :api do
+  	namespace :v1 do
+  		resources :hotels, except: [:new, :edit]
+  	end
+  end
+
   root 'static_pages#home'
   match '/help', to: 'static_pages#help', via: 'get'
   match '/about', to: 'static_pages#about', via: 'get'
