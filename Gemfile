@@ -12,6 +12,7 @@ gem 'devise', '4.1.1'
 gem 'haml', '4.0.7'
 gem 'simple_form', '3.2.1'
 gem 'carrierwave', '0.11.2'
+gem 'active_model_serializers', '0.9.4'
 
 group :production do
   gem 'pg'
