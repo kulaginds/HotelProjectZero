@@ -1,11 +1,14 @@
-%h1 Hotels
-%div.list
+.center.hero-unit
+  %h1 Welcome to the Hotel Advisor
+  %h1= link_to 'View all hotels', hotels_path
+  / <p>Landing page</p>
+  - if !user_signed_in?
+    /= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary"
 - @hotels.each do |hotel|
   %div.hotel
     %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
     %div.data
-      %h2
-        =hotel.title
+      %h2=hotel.title
       %p
         Rating: #{hotel.rating}
       %p
@@ -15,9 +18,3 @@
       = link_to hotel_path(hotel), {class: 'button'} do
         %span
           Read More
-
-= link_to new_hotel_path, {class:'button'} do
-  %span
-    Create new recall
-%br
-= paginate @hotels
