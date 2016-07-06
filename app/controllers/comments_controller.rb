@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!
   def create
     @hotel = Hotel.find(params[:hotel_id])
     @comment = @hotel.comments.create(comment_params)

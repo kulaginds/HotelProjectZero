@@ -38,7 +38,7 @@ class HotelsController < ApplicationController
 		# handle edit hotel
 		@hotel = Hotel.find(params[:id])
 		if @hotel.update(require_fields)
-			redirect_to @hotel
+			redirect_to hotels_path
 		else
 			render 'edit'
 		end

@@ -2,7 +2,7 @@ class CreateHotels < ActiveRecord::Migration
   def change
     create_table :hotels do |t|
       t.string :title
-      t.float :rating, default: 0, null: false
+      t.float :rating
       t.integer :breakfast
       t.text :description
       t.string :photo

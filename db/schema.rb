@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160706070850) do
 
   create_table "hotels", force: :cascade do |t|
     t.string   "title"
-    t.float    "rating",      default: 0.0, null: false
+    t.float    "rating"
     t.integer  "breakfast"
     t.text     "description"
     t.string   "photo"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20160706070850) do
     t.string   "state"
     t.string   "city"
     t.string   "street"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "overall_averages", force: :cascade do |t|

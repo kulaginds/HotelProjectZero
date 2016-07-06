@@ -1,7 +1,7 @@
 %h1
   Hotel "#{@hotel.title}"
   %div.hotel
-    %img{:alt => "hotel photo", :src => @hotel.photo.thumb, :width => "200"}/
+    %img{:alt => "hotel photo", :src => @hotel.photo.url, :width => "800"}/
     %div.data
       /%h2= #@hotel.title
       %p
@@ -10,7 +10,7 @@
       %p
         Breakfast included: #{ @hotel.breakfast==1 ? " Yes" :" No" }
       %p
-        Price for room:#{@hotel.price}
+        Price for room: #{@hotel.price}$
       %p
         Room description:
         = @hotel.description
@@ -19,16 +19,20 @@
         = @hotel.country + ", " + @hotel.state + ", "  + @hotel.city + ", "  + @hotel.street
 
       /- if current_user.email.eql?("admin@email.admin")
-      = link_to 'Edit hotel', edit_hotel_path(@hotel), class: 'button'
-      = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button'
+      = link_to edit_hotel_path(@hotel), {class: 'button'} do
+        %span
+          Edit hotel
+      = link_to hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button' do
+        %span
+          Delete hotel
 
-  %h2 Comments
-  -if @hotel.comments.length > 0
-    = render @hotel.comments
-  -else
-    %p No comments
-  - if current_user
-    %h2 Add a comment:
-    =render 'comments/comment_form'
-  - else
-    %strong Sign up or sign in to leave the comments
+%h2 Comments
+-if @hotel.comments.length > 0
+  = render @hotel.comments
+-else
+  %p No comments
+- if user_signed_in?
+  %h2 Add a comment:
+  =render 'comments/comment_form'
+- else
+  %strong #{ link_to 'Sign in', new_user_session_path} or #{ link_to 'sign up', new_user_registration_path} to leave the comment
