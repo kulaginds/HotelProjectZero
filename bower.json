@@ -1,0 +1,20 @@
+{
+  "name": "bow",
+  "homepage": "https://github.com/kulaginds/HotelProjectZero",
+  "authors": [
+    "SD"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0"
+  }
+}

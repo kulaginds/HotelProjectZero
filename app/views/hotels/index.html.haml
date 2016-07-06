@@ -1,19 +1,23 @@
-%h1 Hotels index
-= link_to 'Create new hotel', new_hotel_path, {class:'button'}
+%h1 Hotels
 %div.list
 - @hotels.each do |hotel|
   %div.hotel
     %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}/
     %div.data
-      %h2= hotel.title
+      %h2
+        =hotel.title
       %p
-        Rating:#{hotel.rating}
+        Rating: #{hotel.rating}
       %p
         Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
       %p
-        Price:#{hotel.price}
+        Price for room:#{hotel.price} $
       = link_to hotel_path(hotel), {class: 'button'} do
         %span
           Read More
 
+= link_to new_hotel_path, {class:'button'} do
+  %span
+    Create new recall
+%br
 = paginate @hotels

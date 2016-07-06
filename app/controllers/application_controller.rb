@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-
   before_action :configure_permitted_parameters, if: :devise_controller?
-  add_breadcrumb "Home", :root_path
+  # add_breadcrumb "Home", :root_path
 
 	def index
 		# load top5 hotels

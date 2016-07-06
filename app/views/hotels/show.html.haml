@@ -1,22 +1,24 @@
 %h1
-  Hotel show
+  Hotel "#{@hotel.title}"
   %div.hotel
     %img{:alt => "hotel photo", :src => @hotel.photo.thumb, :width => "200"}/
     %div.data
-      %h2= @hotel.title
+      /%h2= #@hotel.title
       %p
-        Rating:#{@hotel.rating}
+        Rating:
+        = rating_for @hotel, 'rating', disable_after_rate: false, cancel: true, default: 0
       %p
         Breakfast included: #{ @hotel.breakfast==1 ? " Yes" :" No" }
       %p
-        Price:#{@hotel.price}
+        Price for room:#{@hotel.price}
       %p
         Room description:
         = @hotel.description
       %p
         Address:
         = @hotel.country + ", " + @hotel.state + ", "  + @hotel.city + ", "  + @hotel.street
-      
+
+      /- if current_user.email.eql?("admin@email.admin")
       = link_to 'Edit hotel', edit_hotel_path(@hotel), class: 'button'
       = link_to 'Delete hotel', hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button'
 
@@ -25,6 +27,8 @@
     = render @hotel.comments
   -else
     %p No comments
-
-  %h2 Add a comment:
-  =render 'comments/comment_form'
+  - if current_user
+    %h2 Add a comment:
+    =render 'comments/comment_form'
+  - else
+    %strong Sign up or sign in to leave the comments

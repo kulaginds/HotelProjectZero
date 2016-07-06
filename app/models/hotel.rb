@@ -3,4 +3,5 @@ class Hotel < ActiveRecord::Base
   validates :title, presence: true
   has_many :comments, dependent: :destroy
   paginates_per 2
+  ratyrate_rateable "rating"
 end

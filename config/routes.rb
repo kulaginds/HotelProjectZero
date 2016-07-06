@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, :path_names => {:sign_up => "register"}
 
   # root 'application#index'

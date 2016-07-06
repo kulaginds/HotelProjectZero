@@ -15,7 +15,8 @@ gem 'carrierwave', '0.11.2'
 gem 'active_model_serializers', '0.9.4'
 gem 'breadcrumbs_on_rails', '2.3.1'
 gem 'kaminari', '0.17.0'
-
+gem 'bower'
+gem 'ratyrate'
 group :production do
   gem 'pg'
 end
