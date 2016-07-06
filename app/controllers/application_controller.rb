@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
 	def index
 		# load top5 hotels
+    @hotels = Hotel.joins('INNER JOIN rating_caches ON rating_caches.cacheable_id=hotels.id').order('rating_caches.avg').limit(5)
 	end
 
     protected
