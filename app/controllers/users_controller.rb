@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  add_breadcrumb "home", :root_path
+  # add_breadcrumb "Home", :root_path
+
   def new
   end
+
 end

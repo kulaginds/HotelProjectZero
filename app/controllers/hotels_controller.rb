@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
 	before_action :require_fields, only: [:create, :update]
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-	add_breadcrumb "hotels", :hotels_path
+	add_breadcrumb "Hotels", :hotels_path
 
 	def index
 		@hotels = Hotel.order(:rating).page(params[:page])
@@ -20,17 +20,17 @@ class HotelsController < ApplicationController
 	end
 
 	def new
-		add_breadcrumb "new hotel", :hotels_path
+		add_breadcrumb "New hotel", :hotels_path
 		@hotel=Hotel.new # for break form validation
 	end
 
 	def edit
-		add_breadcrumb "edit hotel", :hotels_path
+		add_breadcrumb "Edit hotel", :hotels_path
 		@hotel = Hotel.find(params[:id])
 	end
 
 	def show
-		add_breadcrumb "details hotel", :hotel_path
+		add_breadcrumb "Details hotel", :hotel_path
 		@hotel = Hotel.find(params[:id])
 	end
 
