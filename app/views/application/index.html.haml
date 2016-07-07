@@ -3,7 +3,7 @@
   - @hotels.each do |hotel|
     %div.hotel
       - if hotel.photo.file.nil?
-        %img{:alt => "hotel photo", :src => "http://s018.radikal.ru/i528/1607/c4/83cb949d4bc6.png", :width => "200"}
+        %img{:alt => "hotel photo", :src => "/img/no-hotel.png", :width => "200"}
       - else
         %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
       %div.data
