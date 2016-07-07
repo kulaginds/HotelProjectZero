@@ -2,10 +2,10 @@
   %p
     = f.label :email
     %br
-    = f.input :commenter, label: false, input_html: {value: "#{current_user.email}" }
+    = f.input :commenter, label: false, input_html: {value: "#{current_user.email}" }, placeholder: 'user@domain.com'
   %p
     = f.label :comment
     %br
-    = f.text_area :body, required: true
+    = f.text_area :body, required: true, placeholder: 'Minimum length-5 characters'
   %p
     = f.submit 'Add'
