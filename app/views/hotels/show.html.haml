@@ -1,7 +1,10 @@
 %h1
   =@hotel.title
   %div.hotel-full
-    %img{:alt => "hotel photo", :src => @hotel.photo.url, :width => "400"}/
+    - if @hotel.photo.file.nil?
+      %img{:alt => "hotel photo", :src => "/img/no-hotel-400.png", :width => "400"}
+    - else
+      %img{:alt => "hotel photo", :src => @hotel.photo.url, :width => "400"}
     %div.data
       %p= rating_for @hotel, 'rating', disable_after_rate: false, cancel: true
       %p
