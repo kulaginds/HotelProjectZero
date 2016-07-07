@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %title= full_title(yield(:title))
@@ -8,9 +7,9 @@
     = render 'layouts/shim'
   %body
     = render 'layouts/header'
-    .container
-      = render_breadcrumbs
-      .space
+    .container.body
+      %ul.breadcrumb
+        = render_breadcrumbs :tag => :li
       = yield
     .clear
     = render 'layouts/footer'
