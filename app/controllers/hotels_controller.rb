@@ -26,17 +26,17 @@ class HotelsController < ApplicationController
 	# end
 
 	def new
-		add_breadcrumb "New hotel", :hotels_path
+		add_breadcrumb "New hotel"
 		@hotel=Hotel.new # for break form validation
 	end
 
 	def edit
-		add_breadcrumb "Edit hotel", :hotels_path
+		add_breadcrumb "Edit hotel"
 		@hotel = Hotel.find(params[:id])
 	end
 
 	def show
-		add_breadcrumb "Details hotel", :hotel_path
+		add_breadcrumb "Details hotel"
 		@hotel = Hotel.find(params[:id])
 	end
 
