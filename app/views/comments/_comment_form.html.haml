@@ -2,10 +2,10 @@
   %p
     = f.label :email
     %br
-    = f.input :commenter, prompt: current_user.email, label: false, input_html: {value: "#{current_user.email}" }, disabled: true
+    = f.input :commenter, label: false, input_html: {value: "#{current_user.email}" }
   %p
     = f.label :comment
     %br
-    = f.text_area :body
+    = f.text_area :body, required: true
   %p
     = f.submit 'Add'
