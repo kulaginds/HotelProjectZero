@@ -1,11 +1,11 @@
 = simple_form_for([@hotel, @hotel.comments.build]) do |f|
   %p
-    = f.label :commenter_email
+    = f.label :email
     %br
-    = f.text_field :commenter
+    = f.input :commenter, prompt: current_user.email, label: false, input_html: {value: "#{current_user.email}" }, disabled: true
   %p
     = f.label :comment
     %br
     = f.text_area :body
   %p
-    = f.submit
+    = f.submit 'Add'

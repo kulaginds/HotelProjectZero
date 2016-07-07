@@ -12,9 +12,7 @@
         %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
       %div.data
         %h2=hotel.title
-        %p
-          Rating:
-          =rating_for hotel, 'rating', disable_after_rate: true
+        %p=rating_for hotel, 'rating', disable_after_rate: true
         %p
           Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
         - if !hotel.price.nil?
