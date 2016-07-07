@@ -1,8 +1,8 @@
-@import 'list-hotel/_breadcrumbs.sass'
-@import 'list-hotel/_button.sass'
-@import 'list-hotel/_list-hotels.sass'
-@import 'list-hotel/_menu.sass'
-@import 'list-hotel/_pagination.sass'
+@import 'list-hotel/_breadcrumbs'
+@import 'list-hotel/_button'
+@import 'list-hotel/_list-hotels'
+@import 'list-hotel/_menu'
+@import 'list-hotel/_pagination'
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,cyrillic,cyrillic-ext');
 
 *, html, body {
