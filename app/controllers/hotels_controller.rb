@@ -10,6 +10,7 @@ class HotelsController < ApplicationController
 
 	def create
 		@hotel=Hotel.new (require_fields)
+		@hotel.user = current_user
 
 		if @hotel.save
 			redirect_to @hotel

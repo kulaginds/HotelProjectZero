@@ -5,4 +5,5 @@ class Hotel < ActiveRecord::Base
   paginates_per 6
   ratyrate_rateable "rating"
   belongs_to :user
+
 end

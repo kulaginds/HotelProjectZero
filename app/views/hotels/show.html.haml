@@ -21,13 +21,13 @@
           Address:
           = @hotel.country + ", " + @hotel.state + ", "  + @hotel.city + ", "  + @hotel.street
 
-      /- if current_user.email.eql?("admin@email.admin")
-      = link_to edit_hotel_path(@hotel), {class: 'button'} do
-        %span
-          Edit hotel
-      = link_to hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button' do
-        %span
-          Delete hotel
+      - if @hotel.user == current_user
+        = link_to edit_hotel_path(@hotel), {class: 'button'} do
+          %span
+            Edit hotel
+        = link_to hotel_path, method: :delete, data: { confirm: 'Do you want to delete hotel?' }, class: 'button' do
+          %span
+            Delete hotel
 %div.comments
   %hr
   %h2 Comments
