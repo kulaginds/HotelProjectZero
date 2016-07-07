@@ -1,9 +1,8 @@
 %h1
-  Hotel "#{@hotel.title}"
+  =@hotel.title
   %div.hotel-full
     %img{:alt => "hotel photo", :src => @hotel.photo.url, :width => "400"}/
     %div.data
-      /%h2= #@hotel.title
       %p= rating_for @hotel, 'rating', disable_after_rate: false, cancel: true
       %p
         Breakfast included: #{ @hotel.breakfast==1 ? " Yes" :" No" }

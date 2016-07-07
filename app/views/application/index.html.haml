@@ -1,23 +1,31 @@
 .center.hero-unit
   %h1 Welcome to the Hotel Advisor
-  %h1= link_to 'View all hotels', hotels_path
-  / <p>Landing page</p>
-  - if !user_signed_in?
-    /= link_to "Sign up now!", new_user_registration_path, class: "btn btn-large btn-primary"
   - @hotels.each do |hotel|
     %div.hotel
-      - if hotel.photo.nil?
-        %img{:alt => "hotel photo", :url => "http://s018.radikal.ru/i528/1607/c4/83cb949d4bc6.png", :width => "200"}
+      - if hotel.photo.file.nil?
+        %img{:alt => "hotel photo", :src => "http://s018.radikal.ru/i528/1607/c4/83cb949d4bc6.png", :width => "200"}
       - else
         %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
       %div.data
-        %h2=hotel.title
+        - if hotel.title.length > 12
+          %h2
+            %marquee
+              =hotel.title
+        -else
+          %h2
+            =hotel.title
         %p=rating_for hotel, 'rating', disable_after_rate: true
         %p
           Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
         - if !hotel.price.nil?
           %p
             Price for room:#{hotel.price} $
+        - else
+          %p &nbsp;
         = link_to hotel_path(hotel), {class: 'button'} do
           %span
             Read More
+
+= link_to hotels_path, {class:'button'} do
+  %span
+    View all hotels
