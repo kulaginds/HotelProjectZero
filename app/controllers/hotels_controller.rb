@@ -8,14 +8,20 @@ class HotelsController < ApplicationController
 		@hotels = Hotel.page(params[:page])
 	end
 
-	def create
-		@hotel=Hotel.new (require_fields)
+	# def create
+	# 	@hotel=Hotel.new (require_fields)
+	#
+	# 	if @hotel.save
+	# 		redirect_to @hotel
+	# 	else
+	# 		render 'new'
+	# 	end
+	# end
 
-		if @hotel.save
-			redirect_to @hotel
-		else
-			render 'new'
-		end
+	def create
+		@user = User.find(params[:user_id])
+		@hotel = @user.hotels.create(require_fields)
+		redirect_to user_path(@hotel)
 	end
 
 	def new

@@ -11,7 +11,7 @@ class CreateHotels < ActiveRecord::Migration
       t.string :state
       t.string :city
       t.string :street
-
+      t.references :user, foreign_key: true
       t.timestamps null: false
     end
   end
