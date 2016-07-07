@@ -1,6 +1,4 @@
 %h1 New hotel
-%p
-  = link_to 'Back', hotels_path
 = simple_form_for :hotel, :url => hotels_path, :method => :post do |f|
   - if @hotel.errors.any?
     #error_explanation
@@ -28,13 +26,15 @@
       %td
         = f.text_area :description
     %tr
-      %td{:colspan => 2}
-        = f.input :photo, as: :file, required: false
+      %td
+        = f.label :photo, required: false
+      %td
+        = f.input :photo, as: :file, required: false, label:false
     %tr
       %td
         = f.label :price, required: false
       %td
-        = f.text_field :price
+        = f.input :price, as: :integer, required: false, label:false
     %tr
       %td
         = f.label :country, required: false
@@ -56,5 +56,7 @@
       %td
         = f.text_field :street
     %tr
-      %td{:colspan => 2}
+      %td
         = f.button :submit
+      %td
+        = link_to 'Back', hotels_path, {class: 'button'}

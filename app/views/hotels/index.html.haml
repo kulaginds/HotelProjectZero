@@ -2,22 +2,27 @@
 %div.list
 - @hotels.each do |hotel|
   %div.hotel
-    %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
+    - if hotel.photo.nil?
+      %img{:alt => "hotel photo", :url => "http://s018.radikal.ru/i528/1607/c4/83cb949d4bc6.png", :width => "200"}
+    - else
+      %img{:alt => "hotel photo", :src => hotel.photo.thumb, :width => "200"}
     %div.data
       %h2
         =hotel.title
       %p
-        Rating: #{hotel.rating}
+        Rating:
+        =rating_for hotel, 'rating', disable_after_rate: true
       %p
         Breakfast included: #{ hotel.breakfast==1 ? " Yes" :" No" }
-      %p
-        Price for room:#{hotel.price} $
+      - if !hotel.price.nil?
+        %p
+          Price for room:#{hotel.price} $
       = link_to hotel_path(hotel), {class: 'button'} do
         %span
           Read More
 
 = link_to new_hotel_path, {class:'button'} do
   %span
-    Create new recall
+    Create new review
 %br
 = paginate @hotels

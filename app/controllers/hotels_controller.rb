@@ -1,12 +1,11 @@
 class HotelsController < ApplicationController
-
 	before_action :require_fields, only: [:create, :update]
 	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 	add_breadcrumb "Home", :root_path # добвлено в 10:42 6.07   Убирает крошку Home на главной странице
 	add_breadcrumb "Hotels", :hotels_path
 
 	def index
-		@hotels = Hotel.order(:rating).page(params[:page])
+		@hotels = Hotel.page(params[:page])
 	end
 
 	def create
