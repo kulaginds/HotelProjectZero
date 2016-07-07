@@ -4,5 +4,6 @@ class Hotel < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   paginates_per 6
   ratyrate_rateable "rating"
+  belongs_to :user
 
 end

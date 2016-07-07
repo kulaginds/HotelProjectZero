@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, :path_names => {:sign_up => "register"}
 
   # root 'application#index'
+  # resources :users do #???????? вложения?
+  #   resources :hotels
+  # end
   resources :hotels do
     resources :comments
   end

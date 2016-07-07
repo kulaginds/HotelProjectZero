@@ -10,6 +10,7 @@ class HotelsController < ApplicationController
 
 	def create
 		@hotel=Hotel.new (require_fields)
+		@hotel.user = current_user
 
 		if @hotel.save
 			redirect_to @hotel
@@ -17,6 +18,12 @@ class HotelsController < ApplicationController
 			render 'new'
 		end
 	end
+
+	# def create
+	# 	@user = User.find(params[:user_id])
+	# 	@hotel = @user.hotels.create(require_fields)
+	# 	redirect_to user_path(@hotel)
+	# end
 
 	def new
 		add_breadcrumb "New hotel", :hotels_path
