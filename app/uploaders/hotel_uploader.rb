@@ -15,7 +15,7 @@ class HotelUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [200,200]
   end
 
-    process :resize_to_fit => [800,800]
+    process :resize_to_fit => [400,400]
 
   # def store_dir
   #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
