@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160706070850) do
 
   create_table "hotels", force: :cascade do |t|
     t.string   "title"
-    t.float    "rating"
+    t.float    "rating",      default: 0.0, null: false
     t.integer  "breakfast"
     t.text     "description"
     t.string   "photo"
@@ -43,9 +43,14 @@ ActiveRecord::Schema.define(version: 20160706070850) do
     t.string   "state"
     t.string   "city"
     t.string   "street"
+<<<<<<< HEAD
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+>>>>>>> 7074c73980342fa02357ee1ef0157a56e058bc11
   end
 
   create_table "overall_averages", force: :cascade do |t|

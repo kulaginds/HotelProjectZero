@@ -1,11 +1,19 @@
-#header
-  %ul.menu
-    %li= link_to "Home", root_path, {:class => 'active'}
-    %li.right= link_to "About",   about_path
-    %li.right= link_to "Contact", contact_path
-    %li.right
-      - if user_signed_in?
-        = link_to "Sign out", destroy_user_session_path, method: :delete
-      - else
-        = link_to "Sign in", new_user_session_path
-    %li.right= link_to "Help", help_path
+%header
+  .container
+    .logo-box
+      %h1.logo
+        %a{:href => "/"}
+          %img{:src => "/img/hotellook_logo.png", :width => 230}/
+    %nav
+      %ul.menu
+        %li
+          = link_to "Help", help_path
+        %li
+          - if user_signed_in?
+            = link_to "Sign out", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Sign in", new_user_session_path
+        %li
+          = link_to "Contact", contact_path
+        %li
+          = link_to "About",   about_path
