@@ -1,5 +1,7 @@
+%br
 %h1
   =@hotel.title
+%br
   %div.hotel-full
     - if @hotel.photo.file.nil?
       %img{:alt => "hotel photo", :src => "/img/no-hotel-400.png", :width => "400"}
@@ -29,8 +31,11 @@
           %span
             Delete hotel
 %div.comments
-  %hr
+  %hr 
+  %br
   %h2 Comments
+  %br
+  %hr
   -if @hotel.comments.length > 0
     = render @hotel.comments
   -else
@@ -38,6 +43,8 @@
   - if user_signed_in?
     %hr
     %h2 Add a comment:
-    =render 'comments/comment_form'
+    %br
+    %div.mail-pass
+      =render 'comments/comment_form'
   - else
     %strong #{ link_to 'Sign in', new_user_session_path} or #{ link_to 'sign up', new_user_registration_path} to leave the comment
