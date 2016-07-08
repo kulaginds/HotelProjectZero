@@ -6,5 +6,8 @@
   = comment.body
 /- if current_user.email.eql?("admin@email.admin")
 - if user_signed_in? && comment.user == current_user
-  %p=link_to 'Delete comment', [comment.hotel, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'button'
+  %p
+    =link_to [comment.hotel, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' do
+      %span
+        Delete
 %hr

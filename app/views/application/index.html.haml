@@ -1,5 +1,6 @@
 .center.hero-unit
-  %h1 Welcome to the Hotel Advisor
+  %h1
+    %center Welcome to the hotel advisor!
   - @hotels.each do |hotel|
     %div.hotel
       - if hotel.photo.file.nil?
@@ -28,4 +29,4 @@
 
 = link_to hotels_path, {class:'button'} do
   %span
-    View all hotels
+    All hotels
