@@ -31,15 +31,21 @@
           %span
             Delete hotel
 %div.comments
-  %hr
+  %hr 
+  %br
   %h2 Comments
+  %br
+  
   -if @hotel.comments.length > 0
     = render @hotel.comments
   -else
     %p No comments
   - if user_signed_in?
-    %hr
+    
+    %br
     %h2 Add a comment:
-    =render 'comments/comment_form'
+    %br
+    %div.mail-pass
+      =render 'comments/comment_form'
   - else
     %strong #{ link_to 'Sign in', new_user_session_path} or #{ link_to 'sign up', new_user_registration_path} to leave the comment

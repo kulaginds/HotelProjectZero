@@ -1,13 +1,20 @@
-%p
-  %strong Commenter:
+%br
+%strong
   = comment.commenter
-%p
-  %strong Comment:
-  = comment.body
+  %strong :
+= comment.body
 /- if current_user.email.eql?("admin@email.admin")
+%br
+
+
 - if user_signed_in? && comment.user == current_user
+<<<<<<< HEAD
+  %p=link_to 'Delete comment', [comment.hotel, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'button'
+
+=======
   %p
     =link_to [comment.hotel, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'button' do
       %span
         Delete
+>>>>>>> ef862cae63dd71f723a3fb0dc90594408a066bd3
 %hr
