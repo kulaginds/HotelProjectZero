@@ -28,8 +28,10 @@
       %td
         = f.text_area :description
     %tr
-      %td{:colspan => 2}
-        = f.input :photo, as: :file, required: false
+      %td
+        = f.label :photo, required: false
+      %td
+        = f.input :photo, as: :file, required: false, label:false
     %tr
       %td
         = f.label :price, required: false

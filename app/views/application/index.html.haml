@@ -1,6 +1,7 @@
 .center.hero-unit
   %h1
     %center Welcome to the hotel advisor!
+  %br
   - @hotels.each do |hotel|
     %div.hotel
       - if hotel.photo.file.nil?

@@ -1,5 +1,7 @@
+%br
 %h1
   =@hotel.title
+%br
   %div.hotel-full
     - if @hotel.photo.file.nil?
       %img{:alt => "hotel photo", :src => "/img/no-hotel-400.png", :width => "400"}

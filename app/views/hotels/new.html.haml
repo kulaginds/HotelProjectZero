@@ -59,6 +59,7 @@
         = f.text_field :street
     %tr
       %td
-        = link_to 'Get back', hotels_path, {class: 'button-back'}
+        =f.button :button do
+          =link_to 'Get back', hotels_path, {class: 'button-back'}
       %td
         = f.button :submit

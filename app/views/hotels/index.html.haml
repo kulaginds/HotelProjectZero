@@ -3,6 +3,7 @@
     Add hotel
 %div.list
   %h1 Hotels
+  %br
   - @hotels.each do |hotel|
     %div.hotel
       - if hotel.photo.file.nil?
