@@ -35,13 +35,14 @@
   %br
   %h2 Comments
   %br
-  %hr
+  
   -if @hotel.comments.length > 0
     = render @hotel.comments
   -else
     %p No comments
   - if user_signed_in?
-    %hr
+    
+    %br
     %h2 Add a comment:
     %br
     %div.mail-pass
