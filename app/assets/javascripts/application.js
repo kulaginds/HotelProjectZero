@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+(function(w, d, $) {
+	w.onload = function() {
+		// TODO: отрегулировать ширину
+		var container_min_height = $("body").height()-$("header").height()-$("footer").height();
+		$(".container.body").css("min-height", container_min_height);
+	};
+})(window, document, jQuery)
