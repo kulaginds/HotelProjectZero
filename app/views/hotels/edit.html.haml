@@ -1,6 +1,6 @@
+%br
 %h1 Edit hotel
-%p
-  = link_to 'List', hotels_path
+%br
 = simple_form_for :hotel, :url => hotel_path(@hotel), :method => :put do |f|
   - if @hotel.errors.any?
     #error_explanation
@@ -10,7 +10,7 @@
     %ul
       - @hotel.errors.full_messages.each do |msg|
         %li= msg
-  %table{:border => "1", :cellpadding => "5px"}
+  %table{:border => "0", :cellpadding => "5px"}
     %tr
       %td
         %p

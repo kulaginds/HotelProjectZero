@@ -10,7 +10,7 @@
         %li
           ERROR: 
           = msg
-  %table{:border => "1", :cellpadding => "5px"}
+  %table{:border => "0", :cellpadding => "5px"}
     %tr
       %td
         %p
@@ -59,6 +59,7 @@
         = f.text_field :street
     %tr
       %td
-        = f.button :submit
+        = link_to 'Back', hotels_path, {class: 'button-back'}
       %td
-        = link_to 'Back', hotels_path, {class: 'button'}
+        = f.button :submit
+        
